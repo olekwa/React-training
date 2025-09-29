@@ -1,16 +1,52 @@
+import React, { useState } from 'react';
+
 export function TodoCard(props) {
-  const {todo, handleDeleteTodo, handleCompleteTodo} = props;
+  const {todo, handleDeleteTodo, handleCompleteTodo, handleEditTodo} = props;
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(todo.title);
+
+  const saveEdit = () => {
+    if (editedTitle.trim() !== "") {
+      handleEditTodo(todo.id, editedTitle.trim());
+      setIsEditing(false);
+    }
+  };
 
 
   return (
     <div className="card todo-item">
-     <p>{todo.title}</p>
+      {isEditing ? (
+        <input
+          type="text"
+          value={editedTitle}
+          onChange={(e) => setEditedTitle(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && saveEdit()}
+          autoFocus
+        />
+      ) : (
+        <p 
+          style={{textDecoration: todo.isCompleted ?     "line-through" : "none",
+          textDecorationColor: todo.isCompleted ? "red" : "inherit",
+          textDecorationThickness: "2px" }}>
+          {todo.title}
+        </p>
+      )}
+     
+     
      <div className="todo-buttons">
+      <button 
+        onClick={() => setIsEditing(true) }
+        disabled={todo.isCompleted}>
+        <i className="fa-solid fa-pen-to-square"></i>
+      </button>
+      
       <button onClick={() => {
         handleCompleteTodo(todo.id)
-      }} disabled={todo.isCompleted}>
+        }} disabled={todo.isCompleted}>
         <h6>Done</h6>
       </button>
+      
       <button onClick={() => handleDeleteTodo(todo.id)}>
         <h6>Delete</h6>
       </button>

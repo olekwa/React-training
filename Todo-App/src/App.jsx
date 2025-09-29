@@ -1,17 +1,14 @@
 import { useState } from 'react'
-import {Header}from './components/Header'
-import {TodoList} from './components/TodoList'
-import {Tabs} from './components/Tabs'
-import{TodoInput} from './components/TodoInput'
+import { Header } from './components/Header'
+import { TodoList } from './components/TodoList'
+import { Tabs } from './components/Tabs'
+import { TodoInput } from './components/TodoInput'
 import { useEffect } from 'react'
 
 
 function App() {
-  const [todos, setTodos] = useState([
-    {id:1, title:"Learn React", isCompleted:false},
+  const [todos, setTodos] = useState([]);
 
-  ])
- 
   const [selectedTab, setSelectedTab] = useState("All");
 
 
@@ -26,7 +23,7 @@ function App() {
   }
 
   function handleDeleteTodo(id) {
-    const newTodoList = todos.filter(todo => todo.id !==id) 
+    const newTodoList = todos.filter(todo => todo.id !== id)
     setTodos(newTodoList);
     saveToLocalStorage(newTodoList);
 
@@ -34,13 +31,19 @@ function App() {
 
 
   function handleCompleteTodo(id) {
-  const newTodoList = todos.map(todo =>
-    todo.id === id ? { ...todo, isCompleted: true } : todo
-  );
-  setTodos(newTodoList);
-  saveToLocalStorage(newTodoList);
-}
-  // function handleEditTodo()
+    const newTodoList = todos.map(todo =>
+      todo.id === id ? { ...todo, isCompleted: true } : todo
+    );
+    setTodos(newTodoList);
+    saveToLocalStorage(newTodoList);
+  }
+  function handleEditTodo(id, newTitle) {
+    const newTodoList = todos.map(todo =>
+      todo.id === id ? { ...todo, title: newTitle } : todo
+    );
+    setTodos(newTodoList);
+    saveToLocalStorage(newTodoList); // keep storage in sync
+  }
 
 
   // const todos = [
@@ -51,7 +54,7 @@ function App() {
   // ]
 
   function saveToLocalStorage(currentTodos) {
-    localStorage.setItem("todos-app", JSON.stringify({todos: currentTodos}) )
+    localStorage.setItem("todos-app", JSON.stringify({ todos: currentTodos }))
   }
   useEffect(() => {
     const stored = localStorage.getItem("todos-app");
@@ -60,13 +63,13 @@ function App() {
     let db = JSON.parse(stored);
     setTodos(db.todos);
   }, []);
-  
+
   return (
-    <>  
-      <Header todos={todos}/> 
-      <Tabs  selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo}  selectedTab={selectedTab} todos={todos}/>
-      <TodoInput handleAddTodo={handleAddTodo}/>  
+    <>
+      <Header todos={todos} />
+      <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos} />
+      <TodoList handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos} />
+      <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )
 }

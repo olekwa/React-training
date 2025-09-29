@@ -45,6 +45,14 @@ function App() {
     saveToLocalStorage(newTodoList); // keep storage in sync
   }
 
+  function handleToggleDoneUndone(id){
+    const newTodoList = todos.map(todo =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setTodos(newTodoList);
+    saveToLocalStorage(newTodoList);
+  }
+
 
   // const todos = [
   //   {id:1, title:"Learn React", isCompleted:false},
@@ -68,7 +76,7 @@ function App() {
     <>
       <Header todos={todos} />
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos} />
-      <TodoList handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos} />
+      <TodoList handleToggleDoneUndone={handleToggleDoneUndone} handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos} />
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )

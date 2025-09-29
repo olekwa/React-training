@@ -3,7 +3,7 @@
 A simple yet powerful Todo application built with **React**. The app allows users to add, complete, delete, and filter tasks with persistence using **Local Storage** so todos are saved even after refreshing the page.
 
 
-## 🚀 Features
+## 🚀 Featuress
 
 * **Add Todos**: Create new tasks with a title.
 * **Mark as Completed**: Mark tasks as done. Completed tasks are shown with a disabled button.

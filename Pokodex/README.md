@@ -1,1 +1,1 @@
-pokedex
+React Pokodex styled with Fanta css

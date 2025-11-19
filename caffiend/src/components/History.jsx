@@ -1,16 +1,17 @@
 import { useAuth } from "../context/AuthContext";
 import { calculateCurrentCaffeineLevel, getCaffeineAmount, timeSinceConsumption } from "../utils";
+import Testimonial from "./Testimonial";
 
 export default function History (){
   const {globalData} = useAuth()
   return (
     <>
-       <div className="section-header">
+      <div className="section-header">
       <i className="fa-solid fa-timeline"/>
       <h2>History</h2>
     </div>
 
-    <p>Hover for more information!</p>
+    <p className="coffee-hover">Hover for more information!</p>
     <div className="coffee-history">
       {Object.keys  
         (globalData).sort((a,b) => b - a ).map((utcTime, coffeeIndex) => {
@@ -33,6 +34,7 @@ export default function History (){
         }) 
       }
     </div>
+    
     </>
   )
 }

@@ -427,16 +427,20 @@ input[type="radio"] {
 }
 
 button {
-    color: var(--color-primary);
-    background-color: var(--background-primary);
+    color: #000;
+    /* -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; */
+    background-image: linear-gradient(135deg, var(--gradient-start) 0, var(--gradient-end) 100%);
+    background-size: 100%;
+    /* -webkit-box-decoration-break: clone; */
     width: fit-content;
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
-    padding: 0.25rem 1.25rem;
-    border: 1.5px solid var(--border-secondary);
+    padding: 0.25rem 1.25rem 0.25rem 1.25rem;
+    border: 1.5px solid var(--gradient-start);
     border-radius: var(--border-radius-small);
-    box-shadow: 2px 2px 0 0 var(--border-secondary);
+    box-shadow: 2px 2px 0 0 var(--gradient-start);
     transition-duration: 200ms;
 }
 

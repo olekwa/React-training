@@ -1,0 +1,227 @@
+<div 
+          className={`mobile-nav-icon ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          <div className='mobile-nav-item'><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></div>
+          <div className='mobile-nav-item'><a href="/case-study" onClick={toggleMobileMenu}>Case Studies</a></div>
+          <div className='mobile-nav-item'><a href="/company" onClick={toggleMobileMenu}>Company</a></div>
+          <div className='mobile-nav-item'><a href="/blog" onClick={toggleMobileMenu}>Blog</a></div>
+          <div className='mobile-nav-item'>
+            <button className="mobile-nav-button" onClick={toggleMobileMenu}>Get Started</button>
+          </div>
+        </div>
+
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    /* box-sizing: border-box; */
+  }
+  
+  
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.25); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 1rem;
+    position: sticky;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    z-index: 1000;
+    
+  }
+  
+  head{
+    width: 100%;
+    padding: 15px 10px 15px 10px;
+    background: rgba(255, 255, 255, 0.25); /* translucent white */
+    backdrop-filter: blur(12px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo img {
+    height: 79px;
+    width: 180px;
+  }
+  
+  nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .nav-bar {
+    font-size: 1.2rem;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-bar:hover {
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+  
+  .nav-button {
+    font-size: bolder;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #f3f3f3;
+    background-color: #3f21ec;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .mobile-nav-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: 8px;
+  }
+  
+  .mobile-nav-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    flex-direction: column;
+    padding: 80px 20px 20px 20px;
+    gap: 15px;
+    border-radius: 0 0 12px 12px;
+    z-index: 999;
+  }
+  
+  .mobile-menu.active {
+    display: flex;
+  }
+  
+  .mobile-nav-item {
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .mobile-nav-item:hover {
+    background-color: #fff;
+  }
+  
+  .mobile-nav-item a {
+    display: block;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .mobile-nav-button {
+    font-size: 1.2rem;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-button:hover {
+   background-color: #fff;
+    border: 1px solid #000;
+  }
+  
+  /* Media Query for Mobile */
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 10px 15px;
+    }
+  
+    /* Hide desktop navigation */
+    nav {
+      display: none;
+    }
+  
+    /* Show mobile nav icon */
+    .mobile-nav-icon {
+      display: flex;
+    }
+  
+    /* Transform hamburger to X when active */
+    .mobile-nav-icon.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+  
+    .mobile-nav-icon.active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .mobile-nav-icon.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  
+   
+    .logo img {
+      height: 60px;
+      width: 140px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .header {
+      margin-top: 2rem;
+      padding: 8px 12px;
+    }
+  
+    .logo img {
+      height: 50px;
+      width: 120px;
+    }
+  }

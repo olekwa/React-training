@@ -29,7 +29,7 @@ export default function Footer(){
                     <div className="footer-menu-section">
                         <div className="footer-logo">
                             <img src="./logo.png" alt="" />
-                            <p>© 2025 Promoted.com, LLC</p>
+                            <p>© 2026 Promoted.com, LLC</p>
                         </div>
                         <div className="footer-menu">
                             <div className="footer-menu1">

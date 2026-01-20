@@ -34,26 +34,26 @@ export default function Footer(){
                         <div className="footer-menu">
                             <div className="footer-menu1">
                                 <a className="menu-col">Products</a>
-                                <a href="/overview">Overview</a>
-                                <a href="/pricing">Pricing</a>
+                                <a href="#">Overview</a>
+                                <a href="#">Pricing</a>
 
                             </div>
                             
                             <div className="footer-menu2">
                                 <a className="menu-col">Company</a>
-                                <a href="/about">About</a>
-                                <a href="/blog">Blog</a>
+                                <a href="#">About</a>
+                                <a href="#">Blog</a>
                             </div>
                             
                             
                             <div className="footer-menu3">
                                 <a className="menu-col">Support</a>
-                                <a href="/contact">Contact Us</a>
+                                <a href="#">Contact Us</a>
                             </div>
                             
                             <div className="footer-menu4">
                                 <a className="menu-col">Company</a>
-                                <a href="/privacy-policy">Privacy Policy</a>
+                                <a href="#">Privacy Policy</a>
 
                             </div>
 

@@ -47,10 +47,10 @@ function Layout() {
 
       {/* DESKTOP NAV */}
       <nav className="nav-desktop">
-        <div className='nav-bar'><a href="/pricing">Pricing</a></div>
-        <div className='nav-bar'><a href="/case-study">Case Studies</a></div>
-        <div className='nav-bar'><a href="/company">Company</a></div>
-        <div className='nav-bar'><a href="/blog">Blog</a></div>
+        <div className='nav-bar'><a href="#">Pricing</a></div>
+        <div className='nav-bar'><a href="#">Case Studies</a></div>
+        <div className='nav-bar'><a href="#">Company</a></div>
+        <div className='nav-bar'><a href="#">Blog</a></div>
         <button className='nav-button'>Get Started</button>
       </nav>
 

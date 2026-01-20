@@ -1,22 +1,3 @@
-<div 
-          className={`mobile-nav-icon ${isMobileMenuOpen ? 'active' : ''}`}
-          onClick={toggleMobileMenu}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <div className='mobile-nav-item'><a href="/pricing" onClick={toggleMobileMenu}>Pricing</a></div>
-          <div className='mobile-nav-item'><a href="/case-study" onClick={toggleMobileMenu}>Case Studies</a></div>
-          <div className='mobile-nav-item'><a href="/company" onClick={toggleMobileMenu}>Company</a></div>
-          <div className='mobile-nav-item'><a href="/blog" onClick={toggleMobileMenu}>Blog</a></div>
-          <div className='mobile-nav-item'>
-            <button className="mobile-nav-button" onClick={toggleMobileMenu}>Get Started</button>
-          </div>
-        </div>
-
 
 
 #root {
@@ -177,6 +158,8 @@
    background-color: #fff;
     border: 1px solid #000;
   }
+
+
   
   /* Media Query for Mobile */
   @media screen and (max-width: 768px) {
@@ -225,3 +208,6 @@
       width: 120px;
     }
   }
+
+
+

@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import Hero from './Hero'
-import Company from '../Company';
-import Services from '../Services';
+import Company from './Company';
+import Services from './Services';
 import About from './About';
-import Testimonial from './Testimonial';
+
 import Footer from './Footer';
 import BackToTop from '../BackToTop';
+
+
+import TestimonialCasestudySection from './TestimonialCasestudySection';
 
 function Layout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -85,7 +88,7 @@ function Layout() {
       <Company />
       <Services />
       <About />
-      <Testimonial />
+      <TestimonialCasestudySection />
       <Footer />
       <BackToTop />
     </>
